@@ -1,0 +1,89 @@
+<svg id="progress-svg" width="100px" height="100px" xmlns="http://www.w3.org/2000/svg"
+	xmlns:xlink="http://www.w3.org/1999/xlink">
+	<style>
+		@keyframes rotate-g {
+			0% {
+				transform: rotate(0deg);
+			}
+
+			to {
+				transform: rotate(360deg);
+			}
+		}
+
+		@keyframes fill {
+
+			/* 45 * 2 * PI * 0.9 */
+			0% {
+				stroke-dashoffset: 212.0575;
+			}
+
+			50% {
+				stroke-dashoffset: 0;
+			}
+
+			to {
+				stroke-dashoffset: -212.0575;
+			}
+		}
+
+
+		@keyframes rotate-p {
+			0% {
+				transform: rotate(0deg);
+			}
+
+			to {
+				transform: rotate(-360deg);
+			}
+		}
+
+		@keyframes color {
+
+			/* 0% {
+				stroke: #f44336;
+			}
+
+			33.33% {
+				stroke: #ffeb3b;
+			}
+
+			66.67% {
+				stroke: #4caf50;
+			}
+
+			to {
+				stroke: #f44336;
+			} */
+			0%,
+			to {
+				stroke: lightgray;
+			}
+
+			50% {
+				stroke: black;
+			}
+		}
+
+		#progress-g {
+			animation-duration: 1.5s;
+			animation-iteration-count: infinite;
+			animation-name: rotate-g;
+			animation-timing-function: linear;
+			transform-origin: 50% 50%;
+		}
+
+		#progress-path {
+			animation-name: fill, rotate-p, color;
+			animation-duration: 1.5s, 6s, 12s;
+			animation-fill-mode: forwards;
+			animation-iteration-count: infinite;
+			animation-timing-function: cubic-bezier(.4, 0, .2, 1), steps(4), linear;
+			transform-origin: 50% 50%;
+		}
+	</style>
+	<g id="progress-g">
+		<path id="progress-path" fill="none" stroke-linecap="round" d="M 50 5 A 45 45 90 1 1 5 50" stroke="blue"
+			stroke-width="10" stroke-dashoffset="0" stroke-dasharray="212.0575" />
+	</g>
+</svg>
